@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://cxjsbetp8h6rb"]
 
-[ext_resource type="Script" path="res://scripts/start.gd" id="1_e1xej"]
-[ext_resource type="Script" path="res://scripts/key.gd" id="2_q7jit"]
+[ext_resource type="Script" path="res://scripts/startthegame.gd" id="1_dtbeo"]
+[ext_resource type="PackedScene" uid="uid://dt8anf07p3me5" path="res://scenes/transition_manager.tscn" id="3_m0j6w"]
 [ext_resource type="Texture2D" uid="uid://cc76huntf566j" path="res://assets/sprites/keyhole.png" id="3_v5ah0"]
 
 [node name="Title" type="Control"]
@@ -11,9 +11,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_e1xej")
 
 [node name="Starthegame" type="Node" parent="."]
+script = ExtResource("1_dtbeo")
 
 [node name="HSlider" type="HSlider" parent="Starthegame"]
 anchors_preset = 8
@@ -21,30 +21,35 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -85.0
-offset_top = -85.0
-offset_right = 85.0
-offset_bottom = 85.0
+offset_left = 172.0
+offset_top = -77.0
+offset_right = 342.0
+offset_bottom = 93.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 max_value = 1.0
 step = 0.01
-script = ExtResource("2_q7jit")
 
 [node name="bg" type="ColorRect" parent="Starthegame"]
-offset_right = 1135.0
-offset_bottom = 644.0
+offset_right = 1152.0
+offset_bottom = 648.0
 mouse_filter = 2
 
 [node name="Keyhole" type="Sprite2D" parent="Starthegame"]
-position = Vector2(576, 324)
+position = Vector2(833, 332)
 scale = Vector2(7, 7)
 texture = ExtResource("3_v5ah0")
+
+[node name="TransitionManager" parent="Starthegame" instance=ExtResource("3_m0j6w")]
 
 [node name="Key" type="Node" parent="Starthegame"]
 
 [node name="ColorRect" type="ColorRect" parent="Starthegame/Key"]
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 819.0
+offset_top = 332.0
+offset_right = 847.0
+offset_bottom = 372.0
+pivot_offset = Vector2(14, 20)
+color = Color(0, 0, 0, 1)
