@@ -1,16 +1,28 @@
 extends RigidBody2D
 
 const SPEED = 5
+const t = 0.1
 
-func _ready() -> void:
-	pass # Replace with function body.
+var lastRot = 0
+var lastDir = Vector2.UP
 
 func _process(delta: float) -> void:
-	if Input.is_action_pressed("forward"): linear_velocity.y -= SPEED
-	if Input.is_action_pressed("left"): linear_velocity.x -= SPEED
-	if Input.is_action_pressed("right"): linear_velocity.x += SPEED
-	if Input.is_action_pressed("reverse"): linear_velocity.y += SPEED
+	var direction := Input.get_vector("left", "right", "forward", "reverse")
 	
-	rotation = atan2(linear_velocity.y, linear_velocity.x) + (PI/2)
-
+	if direction.length() < 0.1:
+		direction = lastDir
+	else:
+		direction = direction.normalized()
+		linear_velocity += direction * SPEED
+	
+	if lastRot - atan2(direction.y, direction.x) > PI:
+		lastRot -= 2*PI
+		
+	if lastRot - atan2(direction.y, direction.x) < -PI:
+		lastRot += 2*PI
+	
+	rotation = lastRot * (1-t) + atan2(direction.y, direction.x) * t
+	
+	lastRot = rotation
+	lastDir = direction
 # forward left right reverse
