@@ -43,6 +43,7 @@ scale = Vector2(7, 7)
 texture = ExtResource("3_v5ah0")
 
 [node name="TransitionManager" parent="Starthegame" instance=ExtResource("3_m0j6w")]
+visible = false
 
 [node name="Key" type="Node" parent="Starthegame"]
 
