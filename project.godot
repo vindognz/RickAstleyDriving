@@ -54,3 +54,4 @@ drift={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.247059, 0.607843, 0.0431373, 1)
