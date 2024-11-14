@@ -13,6 +13,7 @@ var parentList = []
 # carpark that you spawn in facing the way you are forced to spawn in to make it act like im not bad at coding :)
 
 @onready var car: Node2D = $Car
+@onready var carparkMarker: Marker2D = $Carpark/Marker2D
 
 func _ready():
 	genBatch(10)
@@ -30,7 +31,7 @@ func newTile(parent):
 	if newestBranch == null:
 		var tile = straightTile.instantiate()
 		parent.add_child.call_deferred(tile)
-		tile.global_position = car.global_position
+		tile.global_position = carparkMarker.global_position
 		newestBranch = tile.get_child(0).get_child(0)
 	else:
 		if randi_range(1, 50) > corner:

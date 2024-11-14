@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ct4m78lg3umrx"]
+[gd_scene load_steps=6 format=3 uid="uid://ct4m78lg3umrx"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_3lbwp"]
 [ext_resource type="Script" path="res://scripts/roadGenerator.gd" id="1_lix4k"]
 [ext_resource type="Texture2D" uid="uid://bc6x30i600jaq" path="res://assets/player/car.png" id="2_o0r6h"]
+[ext_resource type="Texture2D" uid="uid://ciy25k7ivjjtw" path="res://assets/roadTiles/carpark.png" id="4_16012"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_an6ev"]
 size = Vector2(46.0006, 95.9997)
@@ -30,3 +31,10 @@ texture = ExtResource("2_o0r6h")
 [node name="Camera2D" type="Camera2D" parent="Car"]
 zoom = Vector2(0.7, 0.7)
 position_smoothing_enabled = true
+
+[node name="Carpark" type="Sprite2D" parent="."]
+position = Vector2(374, 478)
+texture = ExtResource("4_16012")
+
+[node name="Marker2D" type="Marker2D" parent="Carpark"]
+position = Vector2(0, -95)
