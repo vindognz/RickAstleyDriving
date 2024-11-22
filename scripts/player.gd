@@ -1,6 +1,6 @@
 extends RigidBody2D
 
-const SPEED = 2.5
+const SPEED = 10
 const MAXt = 0.1
 
 var t = 0.1
@@ -9,6 +9,7 @@ var lastDir = Vector2.RIGHT
 var friction = 2
 
 func _process(delta: float) -> void:
+	
 	var direction := Input.get_vector("left", "right", "forward", "reverse")
 	
 	if Input.is_action_pressed("drift"):
@@ -22,7 +23,8 @@ func _process(delta: float) -> void:
 		direction = lastDir
 	
 	direction = direction.normalized()
-	linear_velocity += direction * SPEED
+	
+	apply_force(direction*SPEED/mass)
 	
 	if lastRot - atan2(direction.y, direction.x) > PI:
 		lastRot -= 2*PI
@@ -39,4 +41,4 @@ func _process(delta: float) -> void:
 	applyFriction(direction, linear_velocity, delta)
 
 func applyFriction(direction, velocity, deltaTime):
-	linear_velocity += (direction.rotated(PI / 2).dot(velocity.normalized()) * -friction * velocity.length()) * direction.rotated(PI / 2) * deltaTime
+	apply_force(((direction.rotated(PI / 2).dot(velocity.normalized()) * -friction * velocity.length()) * direction.rotated(PI / 2) * deltaTime)/mass)
