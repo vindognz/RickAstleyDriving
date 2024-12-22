@@ -12,12 +12,14 @@ func _process(delta: float) -> void:
 	
 	var direction := Input.get_vector("left", "right", "forward", "reverse")
 	
+	print(direction)
+	
 	if Input.is_action_pressed("drift"):
-		linear_damp = 0.1
-		friction = 0.1
+		friction = 0.5
+		linear_damp = 1
 	else:
 		friction = 2
-		linear_damp = 7
+		linear_damp = 5
 		
 	if direction.length() < 0.1:
 		direction = lastDir
