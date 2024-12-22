@@ -1,15 +1,16 @@
 [gd_scene load_steps=6 format=3 uid="uid://ct4m78lg3umrx"]
 
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_3lbwp"]
-[ext_resource type="Script" path="res://scripts/roadGenerator.gd" id="1_lix4k"]
 [ext_resource type="Texture2D" uid="uid://bc6x30i600jaq" path="res://assets/player/car.png" id="2_o0r6h"]
-[ext_resource type="Texture2D" uid="uid://ciy25k7ivjjtw" path="res://assets/roadTiles/carpark.png" id="4_16012"]
+[ext_resource type="Texture2D" uid="uid://colw24c4qa0gr" path="res://assets/player/presents.png" id="4_bk8ik"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_an6ev"]
-size = Vector2(46.0006, 95.9997)
+size = Vector2(96.0011, 175.999)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y23lh"]
+load_path = "res://.godot/imported/carpark.png-99744c16121e4ee7c0089b7fc82e866f.ctex"
 
 [node name="Node" type="Node"]
-script = ExtResource("1_lix4k")
 
 [node name="Car" type="RigidBody2D" parent="."]
 z_index = 1
@@ -26,8 +27,13 @@ shape = SubResource("RectangleShape2D_an6ev")
 
 [node name="CarSprite" type="Sprite2D" parent="Car"]
 rotation = 1.57079
-scale = Vector2(2, 2)
+scale = Vector2(8, 8)
 texture = ExtResource("2_o0r6h")
+
+[node name="Presents" type="Sprite2D" parent="Car"]
+rotation = 1.5708
+scale = Vector2(8, 8)
+texture = ExtResource("4_bk8ik")
 
 [node name="Camera2D" type="Camera2D" parent="Car"]
 zoom = Vector2(0.7, 0.7)
@@ -35,7 +41,7 @@ position_smoothing_enabled = true
 
 [node name="Carpark" type="Sprite2D" parent="."]
 position = Vector2(374, 478)
-texture = ExtResource("4_16012")
+texture = SubResource("CompressedTexture2D_y23lh")
 
 [node name="Marker2D" type="Marker2D" parent="Carpark"]
 position = Vector2(0, -95)

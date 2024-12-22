@@ -1,7 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://cxjsbetp8h6rb"]
+[gd_scene load_steps=3 format=3 uid="uid://cxjsbetp8h6rb"]
 
 [ext_resource type="Script" path="res://scripts/startthegame.gd" id="1_dtbeo"]
-[ext_resource type="PackedScene" uid="uid://dt8anf07p3me5" path="res://scenes/transition_manager.tscn" id="3_m0j6w"]
 [ext_resource type="Texture2D" uid="uid://cc76huntf566j" path="res://assets/sprites/keyhole.png" id="3_v5ah0"]
 
 [node name="Title" type="Control"]
@@ -42,9 +41,6 @@ position = Vector2(833, 332)
 scale = Vector2(7, 7)
 texture = ExtResource("3_v5ah0")
 
-[node name="TransitionManager" parent="Starthegame" instance=ExtResource("3_m0j6w")]
-visible = false
-
 [node name="Key" type="Node" parent="Starthegame"]
 
 [node name="ColorRect" type="ColorRect" parent="Starthegame/Key"]
@@ -54,3 +50,22 @@ offset_right = 847.0
 offset_bottom = 372.0
 pivot_offset = Vector2(14, 20)
 color = Color(0, 0, 0, 1)
+
+[node name="Countdown" type="Label" parent="Starthegame"]
+offset_left = 262.0
+offset_top = 175.0
+offset_right = 468.0
+offset_bottom = 242.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 48
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = -783.0
+offset_top = -299.0
+offset_right = -527.0
+offset_bottom = -267.0
+scale = Vector2(10, 10)
+text = "make it the inside of a sleigh"
+horizontal_alignment = 1
+vertical_alignment = 1

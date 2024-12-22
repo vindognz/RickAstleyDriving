@@ -12,8 +12,6 @@ func _process(delta: float) -> void:
 	
 	var direction := Input.get_vector("left", "right", "forward", "reverse")
 	
-	print(direction)
-	
 	if Input.is_action_pressed("drift"):
 		friction = 0.5
 		linear_damp = 1
@@ -24,9 +22,9 @@ func _process(delta: float) -> void:
 	if direction.length() < 0.1:
 		direction = lastDir
 	
-	direction = direction.normalized()
-	
-	apply_force(direction*SPEED/mass)
+		direction = direction.normalized()
+		
+		apply_force(direction*SPEED/mass)
 	
 	if lastRot - atan2(direction.y, direction.x) > PI:
 		lastRot -= 2*PI

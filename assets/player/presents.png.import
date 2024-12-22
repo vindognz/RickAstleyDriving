@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://n3bmq7bdpwf5"
-path="res://.godot/imported/straight.png-850028714825474beacb67dc17eb0556.ctex"
+uid="uid://colw24c4qa0gr"
+path="res://.godot/imported/presents.png-d5e75a966b438e784301abd8ecf1aa5f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/roadTiles/straight.png"
-dest_files=["res://.godot/imported/straight.png-850028714825474beacb67dc17eb0556.ctex"]
+source_file="res://assets/player/presents.png"
+dest_files=["res://.godot/imported/presents.png-d5e75a966b438e784301abd8ecf1aa5f.ctex"]
 
 [params]
 
