@@ -1,5 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://ct4m78lg3umrx"]
 
+[ext_resource type="Script" path="res://scripts/road-generator.gd" id="1_2wsl1"]
 [ext_resource type="Script" path="res://scripts/player.gd" id="1_3lbwp"]
 [ext_resource type="Texture2D" uid="uid://bc6x30i600jaq" path="res://assets/player/car.png" id="2_o0r6h"]
 [ext_resource type="Texture2D" uid="uid://colw24c4qa0gr" path="res://assets/player/presents.png" id="4_bk8ik"]
@@ -7,41 +8,31 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_an6ev"]
 size = Vector2(96.0011, 175.999)
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_y23lh"]
-load_path = "res://.godot/imported/carpark.png-99744c16121e4ee7c0089b7fc82e866f.ctex"
-
 [node name="Node" type="Node"]
+script = ExtResource("1_2wsl1")
 
-[node name="Car" type="RigidBody2D" parent="."]
+[node name="Sleigh" type="RigidBody2D" parent="."]
 z_index = 1
-position = Vector2(225, 540)
 mass = 0.1
 gravity_scale = 0.0
 lock_rotation = true
 linear_damp = 1.0
 script = ExtResource("1_3lbwp")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Car"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sleigh"]
 rotation = 1.57079
 shape = SubResource("RectangleShape2D_an6ev")
 
-[node name="CarSprite" type="Sprite2D" parent="Car"]
+[node name="SleighSprite" type="Sprite2D" parent="Sleigh"]
 rotation = 1.57079
 scale = Vector2(8, 8)
 texture = ExtResource("2_o0r6h")
 
-[node name="Presents" type="Sprite2D" parent="Car"]
+[node name="Presents" type="Sprite2D" parent="Sleigh"]
 rotation = 1.5708
 scale = Vector2(8, 8)
 texture = ExtResource("4_bk8ik")
 
-[node name="Camera2D" type="Camera2D" parent="Car"]
+[node name="Camera2D" type="Camera2D" parent="Sleigh"]
 zoom = Vector2(0.7, 0.7)
 position_smoothing_enabled = true
-
-[node name="Carpark" type="Sprite2D" parent="."]
-position = Vector2(374, 478)
-texture = SubResource("CompressedTexture2D_y23lh")
-
-[node name="Marker2D" type="Marker2D" parent="Carpark"]
-position = Vector2(0, -95)

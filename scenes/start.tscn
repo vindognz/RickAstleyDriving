@@ -1,71 +1,118 @@
-[gd_scene load_steps=3 format=3 uid="uid://cxjsbetp8h6rb"]
+[gd_scene load_steps=5 format=3 uid="uid://cxjsbetp8h6rb"]
 
 [ext_resource type="Script" path="res://scripts/startthegame.gd" id="1_dtbeo"]
-[ext_resource type="Texture2D" uid="uid://cc76huntf566j" path="res://assets/sprites/keyhole.png" id="3_v5ah0"]
+
+[sub_resource type="Animation" id="Animation_66i20"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1920, 248)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 400)]
+}
+
+[sub_resource type="Animation" id="Animation_n8pds"]
+resource_name = "start-game"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1920, 248), Vector2(1920, 790)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 400), Vector2(0, -51)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jrkog"]
+_data = {
+"RESET": SubResource("Animation_66i20"),
+"start-game": SubResource("Animation_n8pds")
+}
 
 [node name="Title" type="Control"]
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="Starthegame" type="Node" parent="."]
 script = ExtResource("1_dtbeo")
 
-[node name="HSlider" type="HSlider" parent="Starthegame"]
+[node name="Sky" type="ColorRect" parent="Starthegame"]
+anchors_preset = -1
+anchor_bottom = 0.560185
+offset_right = 1920.0
+offset_bottom = 717.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(0.509804, 0.784314, 0.898039, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="Button" type="Button" parent="Starthegame"]
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 172.0
-offset_top = -77.0
-offset_right = 342.0
-offset_bottom = 93.0
+offset_left = -128.0
+offset_top = -32.0
+offset_right = 128.0
+offset_bottom = 32.0
 grow_horizontal = 2
 grow_vertical = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-max_value = 1.0
-step = 0.01
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 32
+text = "Start"
+metadata/_edit_use_anchors_ = true
 
-[node name="bg" type="ColorRect" parent="Starthegame"]
-offset_right = 1152.0
-offset_bottom = 648.0
-mouse_filter = 2
+[node name="Snow" type="ColorRect" parent="Starthegame"]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -250.0
+offset_right = 1920.0
+grow_vertical = 0
 
-[node name="Keyhole" type="Sprite2D" parent="Starthegame"]
-position = Vector2(833, 332)
-scale = Vector2(7, 7)
-texture = ExtResource("3_v5ah0")
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Starthegame/Snow"]
+libraries = {
+"": SubResource("AnimationLibrary_jrkog")
+}
 
-[node name="Key" type="Node" parent="Starthegame"]
-
-[node name="ColorRect" type="ColorRect" parent="Starthegame/Key"]
-offset_left = 819.0
-offset_top = 332.0
-offset_right = 847.0
-offset_bottom = 372.0
-pivot_offset = Vector2(14, 20)
-color = Color(0, 0, 0, 1)
-
-[node name="Countdown" type="Label" parent="Starthegame"]
-offset_left = 262.0
-offset_top = 175.0
-offset_right = 468.0
-offset_bottom = 242.0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 48
-
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = -783.0
-offset_top = -299.0
-offset_right = -527.0
-offset_bottom = -267.0
-scale = Vector2(10, 10)
-text = "make it the inside of a sleigh"
-horizontal_alignment = 1
-vertical_alignment = 1
+[connection signal="pressed" from="Starthegame/Button" to="Starthegame" method="_on_button_pressed"]
+[connection signal="animation_finished" from="Starthegame/Snow/AnimationPlayer" to="Starthegame" method="_on_animation_player_animation_finished"]

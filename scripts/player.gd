@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 const SPEED = 10
-const MAXt = 0.1
+const MAXt = 0.05
 
 var t = 0.1
 var lastRot = 0
@@ -21,7 +21,7 @@ func _process(delta: float) -> void:
 		
 	if direction.length() < 0.1:
 		direction = lastDir
-	
+	else:
 		direction = direction.normalized()
 		
 		apply_force(direction*SPEED/mass)

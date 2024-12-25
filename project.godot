@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="RickAstleyDriving"
+config/name="SantaDriving"
 run/main_scene="res://scenes/start.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
@@ -54,4 +54,4 @@ drift={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-environment/defaults/default_clear_color=Color(0.247059, 0.607843, 0.0431373, 1)
+environment/defaults/default_clear_color=Color(1, 1, 1, 1)
