@@ -28,7 +28,7 @@ rotation = 1.57079
 scale = Vector2(8, 8)
 texture = ExtResource("2_o0r6h")
 
-[node name="Presents" type="Sprite2D" parent="Sleigh"]
+[node name="SleighPresents" type="Sprite2D" parent="Sleigh"]
 rotation = 1.5708
 scale = Vector2(8, 8)
 texture = ExtResource("4_bk8ik")
@@ -36,3 +36,6 @@ texture = ExtResource("4_bk8ik")
 [node name="Camera2D" type="Camera2D" parent="Sleigh"]
 zoom = Vector2(0.7, 0.7)
 position_smoothing_enabled = true
+
+[node name="BackMarker" type="Marker2D" parent="Sleigh"]
+position = Vector2(-152, -8)

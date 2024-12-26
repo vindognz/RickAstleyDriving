@@ -5,14 +5,9 @@ extends Node
 var house = preload("res://scenes/house.tscn")
 
 var sleighDist = 100
-var houseDistMin = 164
-var houseDistMax = 1000
-var grid_size = 64
-
-var house_texture = null
-
-func _ready() -> void:
-	house_texture = house.instantiate().get_node("Building").texture
+var houseDistMin = 200
+var houseDistMax = 1200
+var grid_size = 128
 
 func _process(delta: float) -> void:
 	for house in get_tree().get_nodes_in_group("buildings"):
@@ -28,11 +23,6 @@ func snap_to_grid(position: Vector2) -> Vector2:
 	return Vector2(round(position.x / grid_size) * grid_size, round(position.y / grid_size) * grid_size)
 
 func spawnHouse():
-	var house_width = house_texture.get_size().x
-	var house_height = house_texture.get_size().y
-	var house_half_width = house_width / 2
-	var house_half_height = house_height / 2
-
 	var attempts = 0
 
 	while true:
@@ -48,11 +38,11 @@ func spawnHouse():
 		var valid_location = true
 
 		for building in buildings:
-			if building.position.distance_to(location) < houseDistMin + max(house_width, house_height):
+			if building.position.distance_to(location) < houseDistMin:
 				valid_location = false
 				break
 
-		if valid_location and location.distance_to(sleigh.position) > sleighDist + max(house_half_width, house_half_height):
+		if valid_location and location.distance_to(sleigh.position) > sleighDist:
 			var instance = house.instantiate()
 			instance.rotation_degrees = randi_range(0, 3) * 90
 			instance.position = location

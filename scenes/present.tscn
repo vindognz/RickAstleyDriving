@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://21njblp7xi8n"]
+
+[ext_resource type="Shader" path="res://shaders/present.gdshader" id="1_kfgj0"]
+[ext_resource type="Texture2D" uid="uid://nxscfvas8psu" path="res://assets/sprites/present.png" id="2_a0q75"]
+[ext_resource type="Script" path="res://scripts/present.gd" id="3_kjibw"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_g0jje"]
+shader = ExtResource("1_kfgj0")
+shader_parameter/colourA = Vector4(1, 0, 0, 1)
+shader_parameter/colourB = Vector4(0, 1, 0, 1)
+
+[node name="PresentSprite" type="Sprite2D"]
+material = SubResource("ShaderMaterial_g0jje")
+position = Vector2(609, 329)
+scale = Vector2(8, 8)
+texture = ExtResource("2_a0q75")
+script = ExtResource("3_kjibw")

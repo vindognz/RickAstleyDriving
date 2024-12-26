@@ -1,5 +1,9 @@
 extends RigidBody2D
 
+var presentScene = preload("res://scenes/present.tscn")
+
+@onready var back_marker: Marker2D = $BackMarker
+
 const SPEED = 10
 const MAXt = 0.05
 
@@ -18,6 +22,11 @@ func _process(delta: float) -> void:
 	else:
 		friction = 2
 		linear_damp = 5
+	
+	if Input.is_action_just_pressed("drop-present"):
+		var present = presentScene.instantiate()
+		present.position = back_marker.position
+		get_tree().root.add_child(present)
 		
 	if direction.length() < 0.1:
 		direction = lastDir
@@ -42,3 +51,6 @@ func _process(delta: float) -> void:
 
 func applyFriction(direction, velocity, deltaTime):
 	apply_force(((direction.rotated(PI / 2).dot(velocity.normalized()) * -friction * velocity.length()) * direction.rotated(PI / 2) * deltaTime)/mass)
+
+func dropAPresent():
+	pass
