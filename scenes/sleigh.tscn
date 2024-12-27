@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://ct4m78lg3umrx"]
+[gd_scene load_steps=5 format=3 uid="uid://ct4m78lg3umrx"]
 
 [ext_resource type="Script" path="res://scripts/sleigh.gd" id="1_3lbwp"]
 [ext_resource type="Texture2D" uid="uid://bc6x30i600jaq" path="res://assets/player/car.png" id="2_o0r6h"]
-[ext_resource type="Texture2D" uid="uid://cc76huntf566j" path="res://assets/sprites/keyhole.png" id="4_0wdui"]
 [ext_resource type="Texture2D" uid="uid://colw24c4qa0gr" path="res://assets/player/presents.png" id="4_bk8ik"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_an6ev"]
@@ -30,8 +29,5 @@ rotation = 1.5708
 scale = Vector2(8, 8)
 texture = ExtResource("4_bk8ik")
 
-[node name="BackMarker" type="Sprite2D" parent="."]
-z_index = 2
+[node name="BackMarker" type="Marker2D" parent="."]
 position = Vector2(-120, 0)
-rotation = 1.5708
-texture = ExtResource("4_0wdui")

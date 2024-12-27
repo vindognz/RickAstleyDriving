@@ -63,6 +63,8 @@ func applyFriction(direction, velocity, deltaTime):
 
 func dropAPresent():
 	var presentInstance = presentScene.instantiate()
-	$"..".add_child(presentInstance)
+	$BackMarker.add_child(presentInstance)
 	presentInstance.add_to_group("present")
-	presentInstance.global_position = $BackMarker.global_position # will replace with better method later
+	await get_tree().create_timer(0.1).timeout
+	presentInstance.reparent($"..")
+	#presentInstance.global_position = $BackMarker.global_position # will replace with better method later

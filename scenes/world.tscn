@@ -9,7 +9,6 @@
 script = ExtResource("1_qi4h0")
 
 [node name="Sleigh" parent="." instance=ExtResource("2_igq26")]
-rotation = -1.5708
 
 [node name="Camera2D" type="Camera2D" parent="Sleigh"]
 zoom = Vector2(0.7, 0.7)
