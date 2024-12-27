@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://gxd3cysg5ltg"]
+
+[ext_resource type="Script" path="res://scripts/house-generator.gd" id="1_qi4h0"]
+[ext_resource type="PackedScene" uid="uid://ct4m78lg3umrx" path="res://scenes/sleigh.tscn" id="2_igq26"]
+
+[node name="World" type="Node2D"]
+
+[node name="HouseGenerator" type="Node" parent="."]
+script = ExtResource("1_qi4h0")
+
+[node name="Sleigh" parent="." instance=ExtResource("2_igq26")]
+rotation = -1.5708
+
+[node name="Camera2D" type="Camera2D" parent="Sleigh"]
+zoom = Vector2(0.7, 0.7)
+position_smoothing_enabled = true

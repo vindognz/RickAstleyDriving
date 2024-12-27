@@ -1,6 +1,6 @@
 extends Node
 
-@onready var sleigh: RigidBody2D = $Sleigh
+@onready var sleigh: RigidBody2D = $"../Sleigh"
 
 var house = preload("res://scenes/house.tscn")
 
@@ -14,7 +14,6 @@ func _process(delta: float) -> void:
 		if house.position.distance_to(sleigh.position) > 1500:
 			house.remove_from_group("buildings")
 			house.queue_free()
-			print("yo a house is gone")
 	
 	if get_tree().get_nodes_in_group("buildings").size() < 50:
 		var sleighPos = spawnHouse()
@@ -23,11 +22,7 @@ func snap_to_grid(position: Vector2) -> Vector2:
 	return Vector2(round(position.x / grid_size) * grid_size, round(position.y / grid_size) * grid_size)
 
 func spawnHouse():
-	var attempts = 0
-
 	while true:
-		attempts += 1
-
 		var angle = randf_range(0, 2 * PI)
 		var radius = randf_range(houseDistMin, houseDistMax)
 
@@ -48,7 +43,9 @@ func spawnHouse():
 			instance.position = location
 			instance.add_to_group("buildings")
 			add_child(instance)
-			print("House placed at ", location)
 			return
 			
 	return sleigh.position
+
+
+# add the target house

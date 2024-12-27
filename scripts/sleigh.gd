@@ -2,8 +2,6 @@ extends RigidBody2D
 
 var presentScene = preload("res://scenes/present.tscn")
 
-@onready var back_marker: Marker2D = $BackMarker
-
 const SPEED = 10
 const MAXt = 0.05
 
@@ -11,6 +9,8 @@ var t = 0.1
 var lastRot = 0
 var lastDir = Vector2.RIGHT
 var friction = 2
+
+var presentDropping = false
 
 func _process(delta: float) -> void:
 	
@@ -23,16 +23,25 @@ func _process(delta: float) -> void:
 		friction = 2
 		linear_damp = 5
 	
-	if Input.is_action_just_pressed("drop-present"):
-		var present = presentScene.instantiate()
-		present.position = back_marker.position
-		get_tree().root.add_child(present)
+	if Input.is_action_just_pressed("drop-present") and not presentDropping:
+		presentDropping = true
+		
+		dropAPresent()
+	
+	if presentDropping:
+		var thePresent = get_tree().get_nodes_in_group("present")[0]
+		
+		if thePresent.scale.x <= 4:
+			presentDropping = false
+			thePresent.remove_from_group("present")
+			thePresent.queue_free()
+			
+			# increase the score by some number based on how far it is from the 'target house'
 		
 	if direction.length() < 0.1:
 		direction = lastDir
 	else:
 		direction = direction.normalized()
-		
 		apply_force(direction*SPEED/mass)
 	
 	if lastRot - atan2(direction.y, direction.x) > PI:
@@ -53,4 +62,7 @@ func applyFriction(direction, velocity, deltaTime):
 	apply_force(((direction.rotated(PI / 2).dot(velocity.normalized()) * -friction * velocity.length()) * direction.rotated(PI / 2) * deltaTime)/mass)
 
 func dropAPresent():
-	pass
+	var presentInstance = presentScene.instantiate()
+	$"..".add_child(presentInstance)
+	presentInstance.add_to_group("present")
+	presentInstance.global_position = $BackMarker.global_position # will replace with better method later

@@ -10,8 +10,8 @@ shader_parameter/colourA = Vector4(1, 0, 0, 1)
 shader_parameter/colourB = Vector4(0, 1, 0, 1)
 
 [node name="PresentSprite" type="Sprite2D"]
+z_index = 1
 material = SubResource("ShaderMaterial_g0jje")
-position = Vector2(609, 329)
 scale = Vector2(8, 8)
 texture = ExtResource("2_a0q75")
 script = ExtResource("3_kjibw")
