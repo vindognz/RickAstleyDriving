@@ -2,50 +2,35 @@ extends Node
 
 @onready var sleigh: RigidBody2D = $"../Sleigh"
 
-var house = preload("res://scenes/house.tscn")
+var houseScene = preload("res://scenes/house.tscn")
 
-var sleighDist = 100
-var houseDistMin = 200
-var houseDistMax = 1200
-var grid_size = 128
-
-func _process(delta: float) -> void:
-	for house in get_tree().get_nodes_in_group("buildings"):
+func _process(_delta: float) -> void:
+	for house in get_tree().get_nodes_in_group("houses"):
 		if house.position.distance_to(sleigh.position) > 1500:
-			house.remove_from_group("buildings")
+			house.remove_from_group("houses")
 			house.queue_free()
 	
-	if get_tree().get_nodes_in_group("buildings").size() < 50:
-		var sleighPos = spawnHouse()
-
-func snap_to_grid(position: Vector2) -> Vector2:
-	return Vector2(round(position.x / grid_size) * grid_size, round(position.y / grid_size) * grid_size)
+	if get_tree().get_nodes_in_group("houses").size() < 50:
+		spawnHouse()
+	
+	if get_tree().get_nodes_in_group("houses").size() == 50 and get_tree().get_nodes_in_group("targetHouse").size() != 1:
+		chooseTargetHouse()
 
 func spawnHouse():
-	while true:
-		var angle = randf_range(0, 2 * PI)
-		var radius = randf_range(houseDistMin, houseDistMax)
+	pass
 
-		var raw_location = Vector2(radius * cos(angle), radius * sin(angle)) + sleigh.position
-		var location = snap_to_grid(raw_location)
+func spawnChunk(chunkSize: int, chunkPos: Vector2):
+	for i in range(0, chunkSize):
+		for j in range(0, chunkSize):
+			if randi_range(0, 10) == 0:
+				var instance = houseScene.instantiate()
+				instance.rotation_degrees = randi_range(0, 3) * 90
+				instance.position = chunkPos + Vector2(i, j) * 10
+				instance.add_to_group("houses")
+				add_child(instance)
 
-		var buildings = get_tree().get_nodes_in_group("buildings")
-		var valid_location = true
-
-		for building in buildings:
-			if building.position.distance_to(location) < houseDistMin:
-				valid_location = false
-				break
-
-		if valid_location and location.distance_to(sleigh.position) > sleighDist:
-			var instance = house.instantiate()
-			instance.rotation_degrees = randi_range(0, 3) * 90
-			instance.position = location
-			instance.add_to_group("buildings")
-			add_child(instance)
-			return
-			
-	return sleigh.position
-
-
-# add the target house
+func chooseTargetHouse():
+	var possibleHouses = get_tree().get_nodes_in_group("houses")
+	var targetHouse = possibleHouses[randi_range(0, possibleHouses.size()-1)]
+	targetHouse.add_to_group("targetHouse")
+	targetHouse.texture = load("res://assets/sprites/chosenHouse.png")

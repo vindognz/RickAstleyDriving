@@ -3,5 +3,4 @@
 [ext_resource type="Texture2D" uid="uid://w5ng8linj2gy" path="res://assets/sprites/building.png" id="1_04fc3"]
 
 [node name="Building" type="Sprite2D"]
-scale = Vector2(4, 4)
 texture = ExtResource("1_04fc3")

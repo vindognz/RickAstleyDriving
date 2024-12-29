@@ -2,8 +2,8 @@ extends RigidBody2D
 
 var presentScene = preload("res://scenes/present.tscn")
 
-const SPEED = 10
-const MAXt = 0.05
+const SPEED = 3
+const MAXt = 0.1
 
 var t = 0.1
 var lastRot = 0
@@ -31,18 +31,22 @@ func _process(delta: float) -> void:
 	if presentDropping:
 		var thePresent = get_tree().get_nodes_in_group("present")[0]
 		
-		if thePresent.scale.x <= 4:
+		print(getTargetHouseDist(thePresent))
+		
+		if thePresent.scale.x <= 0.5:
 			presentDropping = false
 			thePresent.remove_from_group("present")
-			thePresent.queue_free()
 			
+			
+			
+			thePresent.queue_free()
 			# increase the score by some number based on how far it is from the 'target house'
 		
 	if direction.length() < 0.1:
 		direction = lastDir
-	else:
-		direction = direction.normalized()
-		apply_force(direction*SPEED/mass)
+	
+	direction = direction.normalized()
+	apply_force(direction*SPEED/mass)
 	
 	if lastRot - atan2(direction.y, direction.x) > PI:
 		lastRot -= 2*PI
@@ -50,7 +54,7 @@ func _process(delta: float) -> void:
 	if lastRot - atan2(direction.y, direction.x) < -PI:
 		lastRot += 2*PI
 
-	t = min(linear_velocity.length() / 500, 1) * MAXt
+	t = min(linear_velocity.length() / 250, 1) * MAXt
 	rotation = lastRot * (1-t) + atan2(direction.y, direction.x) * t
 	
 	lastRot = rotation
@@ -67,4 +71,8 @@ func dropAPresent():
 	presentInstance.add_to_group("present")
 	await get_tree().create_timer(0.1).timeout
 	presentInstance.reparent($"..")
-	#presentInstance.global_position = $BackMarker.global_position # will replace with better method later
+
+func getTargetHouseDist(present):
+	var targetHouse = get_tree().get_nodes_in_group("targetHouse")[0]
+	var pxDistance = present.position.distance_to(targetHouse.position)
+	return pxDistance/10

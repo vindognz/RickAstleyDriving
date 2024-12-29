@@ -11,6 +11,6 @@ func _ready() -> void:
 
 	material = mat
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	scale.x -= 0.05
 	scale.y -= 0.05
