@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://ct4m78lg3umrx"]
+[gd_scene load_steps=6 format=3 uid="uid://ct4m78lg3umrx"]
 
 [ext_resource type="Script" path="res://scripts/sleigh.gd" id="1_3lbwp"]
 [ext_resource type="Texture2D" uid="uid://bc6x30i600jaq" path="res://assets/player/car.png" id="2_o0r6h"]
 [ext_resource type="Texture2D" uid="uid://colw24c4qa0gr" path="res://assets/player/presents.png" id="4_bk8ik"]
+[ext_resource type="FontFile" uid="uid://cnj4h0pa4keai" path="res://assets/fonts/PixelOperatorMono.ttf" id="4_t5u2y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_an6ev"]
 size = Vector2(24.0002, 44)
@@ -32,3 +33,25 @@ texture = ExtResource("4_bk8ik")
 
 [node name="BackMarker" type="Marker2D" parent="."]
 position = Vector2(-30, 0)
+
+[node name="Marker2D" type="Marker2D" parent="."]
+rotation = 6.28319
+
+[node name="ColorRect" type="ColorRect" parent="Marker2D"]
+offset_left = 33.0
+offset_top = -5.0
+offset_right = 45.0
+offset_bottom = 7.0
+pivot_offset = Vector2(5, 5)
+
+[node name="Label" type="Label" parent="Marker2D/ColorRect"]
+offset_left = -6.0
+offset_top = -2.0
+offset_right = 18.0
+offset_bottom = 14.0
+scale = Vector2(0.5, 0.5)
+pivot_offset = Vector2(11.6617, 7.9314)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_t5u2y")
+theme_override_font_sizes/font_size = 16
+text = "100"

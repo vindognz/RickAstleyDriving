@@ -4,6 +4,9 @@ extends Node
 
 var houseScene = preload("res://scenes/house.tscn")
 
+func _ready() -> void:
+	spawnChunk(29, Vector2(-571, -314))
+
 func _process(_delta: float) -> void:
 	for house in get_tree().get_nodes_in_group("houses"):
 		if house.position.distance_to(sleigh.position) > 1500:
@@ -13,7 +16,7 @@ func _process(_delta: float) -> void:
 	if get_tree().get_nodes_in_group("houses").size() < 50:
 		spawnHouse()
 	
-	if get_tree().get_nodes_in_group("houses").size() == 50 and get_tree().get_nodes_in_group("targetHouse").size() != 1:
+	if get_tree().get_nodes_in_group("targetHouse").size() != 1:
 		chooseTargetHouse()
 
 func spawnHouse():
@@ -25,7 +28,7 @@ func spawnChunk(chunkSize: int, chunkPos: Vector2):
 			if randi_range(0, 10) == 0:
 				var instance = houseScene.instantiate()
 				instance.rotation_degrees = randi_range(0, 3) * 90
-				instance.position = chunkPos + Vector2(i, j) * 10
+				instance.position = chunkPos + Vector2(i, j) * 40 + Vector2(20, 20)
 				instance.add_to_group("houses")
 				add_child(instance)
 

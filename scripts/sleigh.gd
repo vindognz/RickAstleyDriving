@@ -2,15 +2,18 @@ extends RigidBody2D
 
 var presentScene = preload("res://scenes/present.tscn")
 
-const SPEED = 3
-const MAXt = 0.1
+const SPEED = 2
+const MAXt = 0.25
 
 var t = 0.1
 var lastRot = 0
 var lastDir = Vector2.RIGHT
-var friction = 2
+var friction = 1
 
 var presentDropping = false
+
+func _ready() -> void:
+	Global.inited = true
 
 func _process(delta: float) -> void:
 	
@@ -20,8 +23,8 @@ func _process(delta: float) -> void:
 		friction = 0.5
 		linear_damp = 1
 	else:
-		friction = 2
-		linear_damp = 5
+		friction = 1
+		linear_damp = 2.5
 	
 	if Input.is_action_just_pressed("drop-present") and not presentDropping:
 		presentDropping = true
@@ -37,10 +40,13 @@ func _process(delta: float) -> void:
 			presentDropping = false
 			thePresent.remove_from_group("present")
 			
+			var targetHouseDist = getTargetHouseDist(thePresent)
 			
+			if targetHouseDist < 50:
+				Global.score += 10/targetHouseDist**3
+			# increase the score by some number based on how far it is from the 'target house'
 			
 			thePresent.queue_free()
-			# increase the score by some number based on how far it is from the 'target house'
 		
 	if direction.length() < 0.1:
 		direction = lastDir
@@ -61,6 +67,8 @@ func _process(delta: float) -> void:
 	lastDir = direction
 	
 	applyFriction(direction, linear_velocity, delta)
+	
+	pointToTarget()
 
 func applyFriction(direction, velocity, deltaTime):
 	apply_force(((direction.rotated(PI / 2).dot(velocity.normalized()) * -friction * velocity.length()) * direction.rotated(PI / 2) * deltaTime)/mass)
@@ -76,3 +84,12 @@ func getTargetHouseDist(present):
 	var targetHouse = get_tree().get_nodes_in_group("targetHouse")[0]
 	var pxDistance = present.position.distance_to(targetHouse.position)
 	return pxDistance/10
+
+func pointToTarget():
+	var targetHouse = get_tree().get_nodes_in_group("targetHouse")[0]
+	$Marker2D.rotation = transform.looking_at(targetHouse.global_position).get_rotation()
+	$Marker2D.rotation -= rotation
+
+	$Marker2D/ColorRect.rotation = -$Marker2D.rotation - rotation
+	
+	$Marker2D/ColorRect/Label.text = str(round(targetHouse.position.distance_to(position)/10))
