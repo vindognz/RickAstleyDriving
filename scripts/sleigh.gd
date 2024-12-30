@@ -12,9 +12,6 @@ var friction = 1
 
 var presentDropping = false
 
-func _ready() -> void:
-	Global.inited = true
-
 func _process(delta: float) -> void:
 	
 	var direction := Input.get_vector("left", "right", "forward", "reverse")
@@ -34,19 +31,23 @@ func _process(delta: float) -> void:
 	if presentDropping:
 		var thePresent = get_tree().get_nodes_in_group("present")[0]
 		
-		print(getTargetHouseDist(thePresent))
-		
 		if thePresent.scale.x <= 0.5:
 			presentDropping = false
 			thePresent.remove_from_group("present")
 			
 			var targetHouseDist = getTargetHouseDist(thePresent)
 			
-			if targetHouseDist < 50:
-				Global.score += 10/targetHouseDist**3
-			# increase the score by some number based on how far it is from the 'target house'
-			
+			if targetHouseDist < 10:
+				Global.score += round(10/max(targetHouseDist, 0.5)**3)
+				get_tree().get_nodes_in_group("targetHouse")[0].queue_free()
+				
 			thePresent.queue_free()
+	
+		
+	if position.distance_to(get_tree().get_nodes_in_group("targetHouse")[0].position) < 50:
+		Engine.time_scale = 0.75
+	else:
+		Engine.time_scale = 1
 		
 	if direction.length() < 0.1:
 		direction = lastDir
@@ -77,7 +78,7 @@ func dropAPresent():
 	var presentInstance = presentScene.instantiate()
 	$BackMarker.add_child(presentInstance)
 	presentInstance.add_to_group("present")
-	await get_tree().create_timer(0.1).timeout
+	await get_tree().create_timer(0.05).timeout
 	presentInstance.reparent($"..")
 
 func getTargetHouseDist(present):
@@ -90,6 +91,6 @@ func pointToTarget():
 	$Marker2D.rotation = transform.looking_at(targetHouse.global_position).get_rotation()
 	$Marker2D.rotation -= rotation
 
-	$Marker2D/ColorRect.rotation = -$Marker2D.rotation - rotation
+	$Marker2D/Label.rotation = -$Marker2D.rotation - rotation
 	
-	$Marker2D/ColorRect/Label.text = str(round(targetHouse.position.distance_to(position)/10))
+	$Marker2D/Label.text = str(round(targetHouse.position.distance_to(position)/10))

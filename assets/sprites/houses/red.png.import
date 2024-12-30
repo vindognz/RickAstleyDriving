@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cc76huntf566j"
-path="res://.godot/imported/keyhole.png-03ef08d8a48ad66fd754fcf4388ca5f6.ctex"
+uid="uid://c4kfg2hlsvt5j"
+path="res://.godot/imported/red.png-c9ac4c3079dfc15e12e1be1cc0ffa9dc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/keyhole.png"
-dest_files=["res://.godot/imported/keyhole.png-03ef08d8a48ad66fd754fcf4388ca5f6.ctex"]
+source_file="res://assets/sprites/houses/red.png"
+dest_files=["res://.godot/imported/red.png-c9ac4c3079dfc15e12e1be1cc0ffa9dc.ctex"]
 
 [params]
 

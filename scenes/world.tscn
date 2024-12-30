@@ -3,32 +3,12 @@
 [ext_resource type="Script" path="res://scripts/house-generator.gd" id="1_qi4h0"]
 [ext_resource type="PackedScene" uid="uid://ct4m78lg3umrx" path="res://scenes/sleigh.tscn" id="2_igq26"]
 [ext_resource type="FontFile" uid="uid://cnj4h0pa4keai" path="res://assets/fonts/PixelOperatorMono.ttf" id="3_ndi0w"]
-[ext_resource type="Script" path="res://scripts/global.gd" id="4_3folc"]
-[ext_resource type="Texture2D" uid="uid://cc76huntf566j" path="res://assets/sprites/keyhole.png" id="5_d7ton"]
+[ext_resource type="Script" path="res://scripts/time_label.gd" id="4_3vkig"]
+[ext_resource type="Script" path="res://scripts/score_label.gd" id="5_crial"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_af2yc"]
 
 [node name="World" type="Node2D"]
-
-[node name="TimeLabel" type="Label" parent="."]
-offset_left = -16.0
-offset_top = 80.0
-offset_right = 16.0
-offset_bottom = 96.0
-theme_override_fonts/font = ExtResource("3_ndi0w")
-text = "2:00"
-script = ExtResource("4_3folc")
-metadata/_edit_use_anchors_ = true
-
-[node name="ScoreLabel" type="Label" parent="."]
-offset_left = -191.0
-offset_top = -108.0
-offset_right = -127.0
-offset_bottom = -92.0
-theme_override_fonts/font = ExtResource("3_ndi0w")
-text = "Score: 0"
-script = ExtResource("4_3folc")
-metadata/_edit_use_anchors_ = true
 
 [node name="HouseGenerator" type="Node" parent="."]
 script = ExtResource("1_qi4h0")
@@ -73,6 +53,32 @@ position = Vector2(0, 846)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Walls/Bottom"]
 shape = SubResource("WorldBoundaryShape2D_af2yc")
 
-[node name="Keyhole" type="Sprite2D" parent="."]
-position = Vector2(571, 314)
-texture = ExtResource("5_d7ton")
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TimeLabel" type="Label" parent="CanvasLayer"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ndi0w")
+theme_override_font_sizes/font_size = 48
+text = "2:00"
+script = ExtResource("4_3vkig")
+
+[node name="ScoreLabel" type="Label" parent="CanvasLayer"]
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 104.0
+offset_bottom = 40.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_ndi0w")
+theme_override_font_sizes/font_size = 48
+text = "Score: 0"
+script = ExtResource("5_crial")

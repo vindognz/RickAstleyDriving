@@ -63,3 +63,4 @@ drop-present={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
+environment/defaults/default_clear_color=Color(0.882353, 0.85098, 0.819608, 1)

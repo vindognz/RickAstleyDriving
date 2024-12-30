@@ -6,7 +6,7 @@
 [ext_resource type="FontFile" uid="uid://cnj4h0pa4keai" path="res://assets/fonts/PixelOperatorMono.ttf" id="4_t5u2y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_an6ev"]
-size = Vector2(24.0002, 44)
+size = Vector2(24.0002, 34)
 
 [node name="Sleigh" type="RigidBody2D"]
 z_index = 2
@@ -17,7 +17,7 @@ linear_damp = 1.0
 script = ExtResource("1_3lbwp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(7.48626e-05, -1.62124e-05)
+position = Vector2(-3, 2.61122e-06)
 rotation = 1.57079
 shape = SubResource("RectangleShape2D_an6ev")
 
@@ -37,18 +37,11 @@ position = Vector2(-30, 0)
 [node name="Marker2D" type="Marker2D" parent="."]
 rotation = 6.28319
 
-[node name="ColorRect" type="ColorRect" parent="Marker2D"]
-offset_left = 33.0
-offset_top = -5.0
-offset_right = 45.0
-offset_bottom = 7.0
-pivot_offset = Vector2(5, 5)
-
-[node name="Label" type="Label" parent="Marker2D/ColorRect"]
-offset_left = -6.0
-offset_top = -2.0
-offset_right = 18.0
-offset_bottom = 14.0
+[node name="Label" type="Label" parent="Marker2D"]
+offset_left = 27.0
+offset_top = -7.0
+offset_right = 51.0
+offset_bottom = 9.0
 scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(11.6617, 7.9314)
 theme_override_colors/font_color = Color(0, 0, 0, 1)

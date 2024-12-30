@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=3 uid="uid://c3vvx806ta7e7"]
+
+[ext_resource type="FontFile" uid="uid://cnj4h0pa4keai" path="res://assets/fonts/PixelOperatorMono.ttf" id="1_amnk7"]
+[ext_resource type="Script" path="res://scripts/game_over.gd" id="1_ky8hk"]
+
+[node name="GameOver" type="Node2D"]
+script = ExtResource("1_ky8hk")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="GameOverLabel" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -196.0
+offset_right = 180.0
+offset_bottom = -116.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_amnk7")
+theme_override_font_sizes/font_size = 80
+text = "Game Over"
+
+[node name="FinalScoreLabel" type="Label" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -40.0
+offset_right = 180.0
+offset_bottom = 40.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("1_amnk7")
+theme_override_font_sizes/font_size = 80
+text = "Your score was:
+"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="CanvasLayer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -99.0
+offset_top = 126.0
+offset_right = 99.0
+offset_bottom = 193.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("1_amnk7")
+theme_override_font_sizes/font_size = 48
+text = "Play Again"
+
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
