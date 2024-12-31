@@ -1,9 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://ct4m78lg3umrx"]
+[gd_scene load_steps=6 format=3 uid="uid://ct4m78lg3umrx"]
 
 [ext_resource type="Script" path="res://scripts/sleigh.gd" id="1_3lbwp"]
 [ext_resource type="Texture2D" uid="uid://bc6x30i600jaq" path="res://assets/player/car.png" id="2_o0r6h"]
 [ext_resource type="Texture2D" uid="uid://coqd6vlkpv1o5" path="res://assets/sprites/arrow.png" id="4_01dq6"]
-[ext_resource type="Texture2D" uid="uid://colw24c4qa0gr" path="res://assets/player/presents.png" id="4_bk8ik"]
 [ext_resource type="FontFile" uid="uid://cnj4h0pa4keai" path="res://assets/fonts/PixelOperatorMono.ttf" id="4_t5u2y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_an6ev"]
@@ -26,11 +25,6 @@ shape = SubResource("RectangleShape2D_an6ev")
 rotation = 1.57079
 scale = Vector2(2, 2)
 texture = ExtResource("2_o0r6h")
-
-[node name="SleighPresents" type="Sprite2D" parent="."]
-rotation = 1.5708
-scale = Vector2(2, 2)
-texture = ExtResource("4_bk8ik")
 
 [node name="BackMarker" type="Marker2D" parent="."]
 position = Vector2(-30, 0)
