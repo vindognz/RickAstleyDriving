@@ -1,6 +1,15 @@
-[gd_scene load_steps=2 format=3 uid="uid://cbq7tarioo4xy"]
+[gd_scene load_steps=5 format=3 uid="uid://cbq7tarioo4xy"]
 
-[ext_resource type="Texture2D" uid="uid://c4kfg2hlsvt5j" path="res://assets/sprites/houses/red.png" id="1_04fc3"]
+[ext_resource type="Shader" path="res://shaders/house.gdshader" id="1_gwxdo"]
+[ext_resource type="Texture2D" uid="uid://bb17bux3nkryd" path="res://assets/sprites/houseShapes/+.png" id="2_id51c"]
+[ext_resource type="Script" path="res://scripts/house.gd" id="3_lkkh3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5tg6m"]
+shader = ExtResource("1_gwxdo")
+shader_parameter/colour = Vector4(280, 144, 99, 255)
 
 [node name="Building" type="Sprite2D"]
-texture = ExtResource("1_04fc3")
+material = SubResource("ShaderMaterial_5tg6m")
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_id51c")
+script = ExtResource("3_lkkh3")

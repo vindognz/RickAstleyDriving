@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bb7lh3drhg18w"
-path="res://.godot/imported/chosenHouseOverlay.png-7f7d59062487c6382b5d40334d724683.ctex"
+uid="uid://c4kfg2hlsvt5j"
+path="res://.godot/imported/red.png-c0ec5bc7f7bac79d06929280fa2f464e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/chosenHouseOverlay.png"
-dest_files=["res://.godot/imported/chosenHouseOverlay.png-7f7d59062487c6382b5d40334d724683.ctex"]
+source_file="res://assets/sprites/old-houses/red.png"
+dest_files=["res://.godot/imported/red.png-c0ec5bc7f7bac79d06929280fa2f464e.ctex"]
 
 [params]
 

@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://ct4m78lg3umrx"]
+[gd_scene load_steps=7 format=3 uid="uid://ct4m78lg3umrx"]
 
 [ext_resource type="Script" path="res://scripts/sleigh.gd" id="1_3lbwp"]
 [ext_resource type="Texture2D" uid="uid://bc6x30i600jaq" path="res://assets/player/car.png" id="2_o0r6h"]
+[ext_resource type="Texture2D" uid="uid://coqd6vlkpv1o5" path="res://assets/sprites/arrow.png" id="4_01dq6"]
 [ext_resource type="Texture2D" uid="uid://colw24c4qa0gr" path="res://assets/player/presents.png" id="4_bk8ik"]
 [ext_resource type="FontFile" uid="uid://cnj4h0pa4keai" path="res://assets/fonts/PixelOperatorMono.ttf" id="4_t5u2y"]
 
@@ -37,11 +38,15 @@ position = Vector2(-30, 0)
 [node name="Marker2D" type="Marker2D" parent="."]
 rotation = 6.28319
 
-[node name="Label" type="Label" parent="Marker2D"]
-offset_left = 27.0
-offset_top = -7.0
-offset_right = 51.0
-offset_bottom = 9.0
+[node name="Sprite2D" type="Sprite2D" parent="Marker2D"]
+position = Vector2(27, -0.000120592)
+texture = ExtResource("4_01dq6")
+
+[node name="Label" type="Label" parent="Marker2D/Sprite2D"]
+offset_left = -3.57628e-05
+offset_top = -8.0
+offset_right = 24.0
+offset_bottom = 8.0
 scale = Vector2(0.5, 0.5)
 pivot_offset = Vector2(11.6617, 7.9314)
 theme_override_colors/font_color = Color(0, 0, 0, 1)

@@ -7,21 +7,21 @@
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.88673, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_udde5"]
+[sub_resource type="CurveTexture" id="CurveTexture_hmkw4"]
 curve = SubResource("Curve_mxd2p")
 
 [sub_resource type="Gradient" id="Gradient_5tjmr"]
 offsets = PackedFloat32Array(0.481818, 0.590909)
 colors = PackedColorArray(1, 1, 1, 0.431373, 1, 1, 1, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_qxp4j"]
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6snm4"]
 gradient = SubResource("Gradient_5tjmr")
 
 [sub_resource type="Curve" id="Curve_epys7"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.72527, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_3n2tv"]
+[sub_resource type="CurveTexture" id="CurveTexture_d430h"]
 curve = SubResource("Curve_epys7")
 
 [sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_4aie4"]
@@ -33,9 +33,9 @@ initial_velocity_max = 20.0
 gravity = Vector3(20, 98, 0)
 scale_min = 5.0
 scale_max = 10.0
-scale_curve = SubResource("CurveTexture_3n2tv")
-color_initial_ramp = SubResource("GradientTexture1D_qxp4j")
-alpha_curve = SubResource("CurveTexture_udde5")
+scale_curve = SubResource("CurveTexture_d430h")
+color_initial_ramp = SubResource("GradientTexture1D_6snm4")
+alpha_curve = SubResource("CurveTexture_hmkw4")
 turbulence_enabled = true
 turbulence_noise_speed_random = 0.0
 turbulence_influence_min = 0.02
@@ -59,10 +59,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -1438.0
-offset_top = -925.5
-offset_right = 1438.0
-offset_bottom = 925.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -105,11 +105,13 @@ theme_override_font_sizes/font_size = 80
 text = "Controls"
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-position = Vector2(112, -468)
+position = Vector2(173, -468)
 amount = 500
 process_material = SubResource("ParticleProcessMaterial_4aie4")
 lifetime = 20.0
 preprocess = 30.0
+visibility_rect = Rect2(0, 0, 1000, 1000)
+trail_lifetime = 0.1
 
 [connection signal="pressed" from="Start" to="." method="_start_pressed"]
 [connection signal="pressed" from="Controls" to="." method="_controls_pressed"]

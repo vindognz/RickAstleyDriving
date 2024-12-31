@@ -1,6 +1,7 @@
 extends Sprite2D
 
 func _ready() -> void:
+	randomize()
 	var mat = material.duplicate()
 
 	var random_colorA = Color(randf(), randf(), randf())

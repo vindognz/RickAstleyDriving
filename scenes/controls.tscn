@@ -3,28 +3,28 @@
 [ext_resource type="FontFile" uid="uid://cnj4h0pa4keai" path="res://assets/fonts/PixelOperatorMono.ttf" id="1_73jo2"]
 [ext_resource type="Script" path="res://scripts/controls.gd" id="1_yromr"]
 
-[sub_resource type="Curve" id="Curve_sgg2k"]
+[sub_resource type="Curve" id="Curve_x8wow"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -1.88673, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_vnuao"]
-curve = SubResource("Curve_sgg2k")
+[sub_resource type="CurveTexture" id="CurveTexture_udde5"]
+curve = SubResource("Curve_x8wow")
 
-[sub_resource type="Gradient" id="Gradient_chjnm"]
+[sub_resource type="Gradient" id="Gradient_3pvyg"]
 offsets = PackedFloat32Array(0.481818, 0.590909)
 colors = PackedColorArray(1, 1, 1, 0.431373, 1, 1, 1, 1)
 
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_41khd"]
-gradient = SubResource("Gradient_chjnm")
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_qxp4j"]
+gradient = SubResource("Gradient_3pvyg")
 
-[sub_resource type="Curve" id="Curve_2pd3m"]
+[sub_resource type="Curve" id="Curve_e7rr5"]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -2.72527, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="CurveTexture" id="CurveTexture_t4cdi"]
-curve = SubResource("Curve_2pd3m")
+[sub_resource type="CurveTexture" id="CurveTexture_3n2tv"]
+curve = SubResource("Curve_e7rr5")
 
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_bw5ec"]
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_h82y4"]
 particle_flag_disable_z = true
 emission_shape = 3
 emission_box_extents = Vector3(1000, 1, 1)
@@ -33,9 +33,9 @@ initial_velocity_max = 20.0
 gravity = Vector3(20, 98, 0)
 scale_min = 5.0
 scale_max = 10.0
-scale_curve = SubResource("CurveTexture_t4cdi")
-color_initial_ramp = SubResource("GradientTexture1D_41khd")
-alpha_curve = SubResource("CurveTexture_vnuao")
+scale_curve = SubResource("CurveTexture_3n2tv")
+color_initial_ramp = SubResource("GradientTexture1D_qxp4j")
+alpha_curve = SubResource("CurveTexture_udde5")
 turbulence_enabled = true
 turbulence_noise_speed_random = 0.0
 turbulence_influence_min = 0.02
@@ -60,10 +60,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -1438.0
-offset_top = -925.5
-offset_right = 1438.0
-offset_bottom = 925.5
+offset_left = -960.0
+offset_top = -540.0
+offset_right = 960.0
+offset_bottom = 540.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
@@ -78,9 +78,9 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = -242.0
-offset_top = -162.0
+offset_top = -132.0
 offset_right = -128.0
-offset_bottom = -34.0
+offset_bottom = -24.0
 grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(2, 2)
@@ -88,13 +88,12 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_73jo2")
 theme_override_font_sizes/font_size = 16
 allow_search = false
-item_count = 6
+item_count = 5
 item_0/text = "Move Forward"
 item_1/text = "Move Down"
 item_2/text = "Move Left"
 item_3/text = "Move Right"
-item_4/text = "Drift"
-item_5/text = "Drop Present"
+item_4/text = "Drop Present"
 
 [node name="Binds" type="ItemList" parent="."]
 layout_mode = 1
@@ -104,9 +103,9 @@ anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
 offset_left = 14.0
-offset_top = -162.0
+offset_top = -132.0
 offset_right = 128.0
-offset_bottom = -34.0
+offset_bottom = -24.0
 grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(2, 2)
@@ -114,13 +113,12 @@ theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_73jo2")
 theme_override_font_sizes/font_size = 16
 allow_search = false
-item_count = 6
+item_count = 5
 item_0/text = "Up / W"
 item_1/text = "Down / S"
 item_2/text = "Left / A"
 item_3/text = "Right / D"
-item_4/text = "Shift"
-item_5/text = "Space"
+item_4/text = "Space"
 
 [node name="GoBackButton" type="Button" parent="."]
 layout_mode = 1
@@ -141,13 +139,6 @@ theme_override_fonts/font = ExtResource("1_73jo2")
 theme_override_font_sizes/font_size = 80
 text = "Go Back"
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-position = Vector2(192, -427)
-amount = 500
-process_material = SubResource("ParticleProcessMaterial_bw5ec")
-lifetime = 20.0
-preprocess = 30.0
-
 [node name="Label" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 5
@@ -161,5 +152,14 @@ grow_horizontal = 2
 theme_override_fonts/font = ExtResource("1_73jo2")
 theme_override_font_sizes/font_size = 48
 text = "(cannot be changed yet)"
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(67, -540)
+amount = 500
+process_material = SubResource("ParticleProcessMaterial_h82y4")
+lifetime = 20.0
+preprocess = 30.0
+visibility_rect = Rect2(0, 0, 1000, 1000)
+trail_lifetime = 0.1
 
 [connection signal="pressed" from="GoBackButton" to="." method="_go_back_pressed"]

@@ -16,13 +16,6 @@ func _process(delta: float) -> void:
 	
 	var direction := Input.get_vector("left", "right", "forward", "reverse")
 	
-	if Input.is_action_pressed("drift"):
-		friction = 0.5
-		linear_damp = 1
-	else:
-		friction = 1
-		linear_damp = 2.5
-	
 	if Input.is_action_just_pressed("drop-present") and not presentDropping:
 		presentDropping = true
 		
@@ -37,8 +30,8 @@ func _process(delta: float) -> void:
 			
 			var targetHouseDist = getTargetHouseDist(thePresent)
 			
-			if targetHouseDist < 10:
-				Global.score += round(10/max(targetHouseDist, 0.5)**3)
+			if targetHouseDist < 30:
+				Global.score += round(10/max(targetHouseDist, 0.75)**3)
 				get_tree().get_nodes_in_group("targetHouse")[0].queue_free()
 				
 			thePresent.queue_free()
@@ -91,6 +84,6 @@ func pointToTarget():
 	$Marker2D.rotation = transform.looking_at(targetHouse.global_position).get_rotation()
 	$Marker2D.rotation -= rotation
 
-	$Marker2D/Label.rotation = -$Marker2D.rotation - rotation
+	$Marker2D/Sprite2D/Label.rotation = -$Marker2D.rotation - rotation
 	
-	$Marker2D/Label.text = str(round(targetHouse.position.distance_to(position)/10))
+	$Marker2D/Sprite2D/Label.text = str(round(targetHouse.position.distance_to(position)/10))
