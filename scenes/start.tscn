@@ -50,74 +50,74 @@ length = 15.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("StartAnim/Takeoff/Car:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.5),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.766667, 0.933333, 1.16667, 2, 4.26667, 5.4, 5.76667, 6.7, 7.53333, 8.6, 9.5, 10.1667, 10.6, 11.8, 12.9667, 13.8667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [Vector2(576, 324), Vector2(-1344, 324)]
+"values": [Vector2(-887, 0), Vector2(-664, 0), Vector2(-598, 0), Vector2(-495, 0), Vector2(-48.9998, 0), Vector2(309, 0), Vector2(500, 0), Vector2(600, 0), Vector2(805.667, 0), Vector2(971.333, 0), Vector2(1231.7, 0), Vector2(1428, 0), Vector2(1536.33, 0), Vector2(1680, 0), Vector2(1943, 0), Vector2(2239.78, 0), Vector2(2401, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("StartAnim/Takeoff/Car:position")
+tracks/1/path = NodePath("StartAnim/Takeoff/Car:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(1.26667, 2.76667, 3.76667, 5.76667, 7.76667, 9, 11, 12, 13.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-887, 0), Vector2(-387, 0), Vector2(-87, 0), Vector2(597, 0), Vector2(1054, 0), Vector2(1316, 0), Vector2(1711, 0), Vector2(1977, 0), Vector2(2391, 0)]
+"values": [Vector2(6, 6)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("StartAnim/Takeoff/Car:scale")
+tracks/2/path = NodePath("StartAnim:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(2.26667, 3.76667, 5.76667),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(6, 6), Vector2(12, 12), Vector2(14, 14)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("StartAnim:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(4.26667, 5.76667, 7.76667, 9, 11, 12, 13.5),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(1920, 0), Vector2(1320, 0), Vector2(920, 0), Vector2(620, 0), Vector2(220, 0), Vector2(-80, 0), Vector2(-480, 0)]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("StartAnim/Takeofftwo/GPUParticles2D:process_material:scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StartAnim/Takeofftwo/GPUParticles2D:process_material:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(7.1, 8.5, 11),
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Vector2(5, 10), Vector2(30, 50), Vector2(100, 100)]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("StartAnim/Takeofftwo/ColorRect:color")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StartAnim/Takeofftwo/ColorRect:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(13.6, 14.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Camera2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(1920, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_qjn56"]
@@ -125,74 +125,74 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("StartAnim/Takeoff/Car:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(576, 324)]
+"values": [Vector2(-887, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("StartAnim/Takeoff/Car:position")
+tracks/1/path = NodePath("StartAnim/Takeoff/Car:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-887, 0)]
+"values": [Vector2(6, 6)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("StartAnim/Takeoff/Car:scale")
+tracks/2/path = NodePath("StartAnim:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(6, 6)]
+"values": [Vector2(1920, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("StartAnim:position")
+tracks/3/path = NodePath("StartAnim/Takeofftwo/GPUParticles2D:process_material:scale")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1920, 0)]
+"values": [Vector2(5, 10)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("StartAnim/Takeofftwo/GPUParticles2D:process_material:scale")
+tracks/4/path = NodePath("StartAnim/Takeofftwo/ColorRect:color")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(5, 10)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("StartAnim/Takeofftwo/ColorRect:color")
+tracks/5/path = NodePath("Camera2D:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nnbgp"]
@@ -335,6 +335,8 @@ offset_left = -1379.0
 offset_top = -678.0
 offset_right = 981.0
 offset_bottom = 703.0
+
+[node name="Camera2D" type="Camera2D" parent="."]
 
 [connection signal="pressed" from="Start" to="." method="_start_pressed"]
 [connection signal="pressed" from="Controls" to="." method="_controls_pressed"]
